@@ -13,7 +13,7 @@ public class Main {
         List<String> bridgeCommands = Files.readAllLines(file.toPath());
         for (String bridgeCommand : bridgeCommands) {
             Thread thread = new Thread(() -> {
-                Bridge bridge = new Bridge(bridgeCommand, "");
+                Bridge bridge = new Bridge(bridgeCommand, "placeholder");
                 bridges.add(bridge);
             });
 

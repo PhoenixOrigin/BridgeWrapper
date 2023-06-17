@@ -43,7 +43,7 @@ public class Bridge {
         process.destroy();
         String date = new SimpleDateFormat("dd-MM-yyyy-HH-mm-ss").format(new Date());
         File rename = new File(String.format("./%s-%s.log", guildName, date));
-        boolean success = log.renameTo(rename);
+        log.renameTo(rename);
         killed = true;
     }
 
