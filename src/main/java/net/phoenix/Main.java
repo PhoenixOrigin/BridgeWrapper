@@ -11,11 +11,14 @@ public class Main {
         List<Bridge> bridges = new ArrayList<>();
         File file = new File(args[0]);
         List<String> bridgeCommands = Files.readAllLines(file.toPath());
+        int count = 0;
         for (String bridgeCommand : bridgeCommands) {
+            String guildName = "placholder" + count;
             Thread thread = new Thread(() -> {
-                Bridge bridge = new Bridge(bridgeCommand, "placeholder");
+                Bridge bridge = new Bridge(bridgeCommand, guildName);
                 bridges.add(bridge);
             });
+            count++;
 
             thread.start();
         }

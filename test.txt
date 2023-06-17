@@ -1,0 +1,2 @@
+echo hi
+echo im a stupid
