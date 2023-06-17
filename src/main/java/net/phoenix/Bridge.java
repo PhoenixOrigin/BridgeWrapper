@@ -14,13 +14,11 @@ public class Bridge {
     private File log;
     private boolean killed = false;
 
-
     public Bridge(String startCommand, String guildName) {
         this.guildName = guildName;
-        pb = new ProcessBuilder(startCommand);
+        pb = new ProcessBuilder("bash", "-c", startCommand);
         log = new File(String.format("./%s.log", guildName));
-        pb.redirectOutput(log);
-        pb.redirectOutput(log);
+        pb.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
         try {
             process = pb.start();
         } catch (IOException e) {
